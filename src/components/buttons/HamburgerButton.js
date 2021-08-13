@@ -33,10 +33,9 @@ const Wrapper = styled.button`
   }
 
   div {
-    //#fae6e6"
     width: 2rem;
     height: 0.25rem;
-    background: ${({ open }) => (open ? "#e77b7b" : "#e77b7b")};
+    background: ${({ open }) => (open ? "#e77b7b" : "#fae6e6")};
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;

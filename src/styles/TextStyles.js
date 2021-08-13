@@ -57,6 +57,12 @@ export const MenuText = styled.p`
   font-weight: bold;
   font-size: 16px;
   color: #e77b7b;
+  padding: 5px;
+  transition: 0.5s linear;
+  :hover {
+    color: #f9a2a2;
+    cursor: pointer;
+  }
 `;
 
 export const SmallText2 = styled.p`

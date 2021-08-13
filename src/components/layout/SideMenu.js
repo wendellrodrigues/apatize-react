@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import SideWaysLogo from "../../static/logos/sideways_logo.svg";
 import { MenuText } from "../../styles/TextStyles";
@@ -6,13 +7,18 @@ import { MenuText } from "../../styles/TextStyles";
 export default function SideMenu(props) {
   const { open, setOpen } = props;
   //Menu for when app is at login screen
-  const LoginMenu = ["Login", "Register"];
+  const LoginMenu = [
+    { title: "Login", link: "/" },
+    { title: "Register", link: "/register" },
+  ];
 
   return (
     <Wrapper open={open}>
       <MenuWrapper count={LoginMenu.length}>
         {LoginMenu.map((item, index) => (
-          <MenuItem>{item}</MenuItem>
+          <Link to={item.link}>
+            <MenuItem>{item.title}</MenuItem>
+          </Link>
         ))}
       </MenuWrapper>
     </Wrapper>

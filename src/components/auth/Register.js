@@ -1,14 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import LoginForm from "../forms/LoginForm";
+import RegisterForm from "../forms/RegisterForm";
 import WelcomeText from "../texts/WelcomeText";
 
-export default function Landing() {
+export default function Register() {
   return (
     <Wrapper>
       <ContentWrapper>
         <WelcomeText />
-        <LoginForm />
+        <RegisterForm />
       </ContentWrapper>
     </Wrapper>
   );

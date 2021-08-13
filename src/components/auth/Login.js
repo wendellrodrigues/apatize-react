@@ -3,7 +3,7 @@ import styled from "styled-components";
 import LoginForm from "../forms/LoginForm";
 import WelcomeText from "../texts/WelcomeText";
 
-export default function Landing() {
+export default function Login() {
   return (
     <Wrapper>
       <ContentWrapper>
