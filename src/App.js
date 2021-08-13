@@ -1,20 +1,19 @@
-import React, { Fragment } from "react";
-import styled from "styled-components";
+import React, { Fragment, useEffect, useRef, useState } from "react";
+import Navbar from "./components/layout/Navbar";
+import SideMenu from "./components/layout/SideMenu";
+import HamburgerButton from "./components/buttons/HamburgerButton";
 
 const App = () => {
+  //For side menu
+  const [open, setOpen] = useState(false);
+
   return (
     <Fragment>
-      <Wrapper></Wrapper>
+      <HamburgerButton open={open} setOpen={(open) => setOpen(open)} />
+      <Navbar />
+      <SideMenu open={open} setOpen={(open) => setOpen(open)} />
     </Fragment>
   );
 };
-
-const Wrapper = styled.div`
-  display: grid;
-  height: 500px;
-  width: 100%;
-  background: black;
-  margin: 0;
-`;
 
 export default App;
