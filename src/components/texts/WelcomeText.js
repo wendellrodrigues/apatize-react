@@ -8,7 +8,6 @@ export default function WelcomeText() {
       <BottomSection>
         <Tagline>find meals to fit your goals</Tagline>
         <Line />
-        <LearnMore>Learn More</LearnMore>
       </BottomSection>
     </Wrapper>
   );
@@ -18,6 +17,10 @@ const Wrapper = styled.div`
   display: grid;
   gap: 50px;
   position: relative;
+
+  @media (max-width: 760px) {
+    gap: 0px;
+  }
 `;
 
 //Contains Tagline, Line, and Find more
@@ -29,19 +32,32 @@ const BottomSection = styled.div`
 const Title = styled.h1`
   font-style: normal;
   font-weight: bold;
-  font-size: 100px;
+  font-size: 90px;
   line-height: 130px;
   text-align: center;
   color: white;
+  @media (max-width: 1000px) {
+    font-size: 70px;
+  }
+
+  @media (max-width: 760px) {
+    line-height: auto;
+  }
 `;
 
 const Tagline = styled.p`
   font-style: normal;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 30px;
   line-height: 52px;
   text-align: center;
   color: white;
+  white-space: nowrap;
+
+  @media (max-width: 1000px) {
+    font-size: 20px;
+  }
+}
 `;
 
 const Line = styled.div`
@@ -50,17 +66,8 @@ const Line = styled.div`
   background: white;
   justify-items: center;
   align-items: center;
-`;
 
-const LearnMore = styled.p`
-  font-style: normal;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 21px;
-  text-align: center;
-  color: white;
-  margin-top: 40px;
-  :hover {
-    cursor: pointer;
+  @media (max-width: 760px) {
+    display: none;
   }
 `;

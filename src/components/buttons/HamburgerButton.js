@@ -4,8 +4,23 @@ import styled from "styled-components";
 
 export default function HamburgerButton(props) {
   const { open, setOpen } = props;
+
+  const setOpenBurger = () => {
+    setOpen(!open);
+    console.log(open);
+  };
+
+  const onChange = (e) => {
+    console.log("");
+  };
+
   return (
-    <Wrapper open={open} onClick={() => setOpen(!open)}>
+    <Wrapper
+      open={open}
+      onClick={() => {
+        setOpenBurger();
+      }}
+    >
       <div />
       <div />
       <div />
@@ -18,6 +33,7 @@ const Wrapper = styled.button`
   top: 2rem;
   right: 2rem;
   display: flex;
+  z-index: 4;
   flex-direction: column;
   justify-content: space-around;
   width: 2rem;
