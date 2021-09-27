@@ -10,10 +10,6 @@ export default function HamburgerButton(props) {
     console.log(open);
   };
 
-  const onChange = (e) => {
-    console.log("");
-  };
-
   return (
     <Wrapper
       open={open}

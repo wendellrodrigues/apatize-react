@@ -5,7 +5,7 @@ import styled from "styled-components";
 //Hook
 import useOnClickOutside from "../../helpers/hooks";
 
-//Icons (Refactor later)
+//Icons
 import UserIcon from "../../static/icons/user.svg";
 import MailIcon from "../../static/icons/mail.svg";
 import KeyIcon from "../../static/icons/key.svg";
@@ -24,18 +24,16 @@ import {
   ChangePageText,
 } from "../../styles/InputFieldStyles";
 
-export default function RegisterForm() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    password2: "",
-    invite: "",
-  });
-
+export default function RegisterForm(props) {
+  const { formData, setFormData } = props;
   const [clickedState, setClickedState] = useState("");
-
   const { name, email, password, password2, invite } = formData;
+
+  //Submitting the form
+  const onSubmit = (e) => {
+    if (password !== password2) console.log("Passwords do not match");
+    else console.log(formData);
+  };
 
   //To update form data
   const onChange = (e) => {
@@ -163,8 +161,8 @@ export default function RegisterForm() {
               stateName={clickedState}
               onKeyPress={(e) => {
                 if (e.key === "Enter") {
-                  console.log("Submitting Form");
                   setClicked("");
+                  onSubmit(formData);
                 }
               }}
               ref={ref_input5}

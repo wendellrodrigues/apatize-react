@@ -1,20 +1,36 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, Fragment } from "react";
+import AnchorLink from "react-anchor-link-smooth-scroll";
+import { Link, animateScroll as scroll } from "react-scroll";
 import styled from "styled-components";
 import LoginForm from "../forms/LoginForm";
 import WelcomeText from "../texts/WelcomeText";
+import About from "../sections/About";
 
 export default function Login() {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
   return (
-    <Wrapper>
-      <ContentWrapper>
-        <TextWrapper>
-          <WelcomeText />
-          <LearnMoreTop>Learn More</LearnMoreTop>
-        </TextWrapper>
-        <LoginForm />
-        <LearnMoreBottom>Learn More </LearnMoreBottom>
-      </ContentWrapper>
-    </Wrapper>
+    <Fragment>
+      <Wrapper>
+        <ContentWrapper>
+          <TextWrapper>
+            <WelcomeText />
+            <LearnMoreTop>Learn More</LearnMoreTop>
+          </TextWrapper>
+          <LoginForm
+            formData={formData}
+            setFormData={(formData) => setFormData(formData)}
+          />
+          <Link to="/#about">
+            <LearnMoreBottom>Learn More</LearnMoreBottom>
+          </Link>
+        </ContentWrapper>
+      </Wrapper>
+      <About id="about" />
+    </Fragment>
   );
 }
 

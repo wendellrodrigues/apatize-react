@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useRef, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import styled from "styled-components";
 import Navbar from "./components/layout/Navbar";
 import SideMenu from "./components/layout/SideMenu";
 import HamburgerButton from "./components/buttons/HamburgerButton";
@@ -23,26 +24,30 @@ const App = () => {
   return (
     <Router>
       <div ref={ref}>
-        <HamburgerButton open={open} setOpen={(open) => setOpen(open)} />
-        <Navbar />
-        <SideMenu open={open} setOpen={(open) => setOpen(open)} />
-        <Switch>
-          <Route
-            exact
-            path="/"
-            component={Login}
-            page={(page) => setPage("Login")}
-          />
-          <Route
-            exact
-            path="/register"
-            component={Register}
-            page={(page) => setPage("Register")}
-          />
-        </Switch>
+        <Wrapper>
+          <HamburgerButton open={open} setOpen={(open) => setOpen(open)} />
+          <Navbar />
+          <SideMenu open={open} setOpen={(open) => setOpen(open)} />
+          <Switch>
+            <Route
+              exact
+              path="/"
+              component={Login}
+              page={(page) => setPage("Login")}
+            />
+            <Route
+              exact
+              path="/register"
+              component={Register}
+              page={(page) => setPage("Register")}
+            />
+          </Switch>
+        </Wrapper>
       </div>
     </Router>
   );
 };
 
 export default App;
+
+const Wrapper = styled.div``;

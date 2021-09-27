@@ -1,7 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, Fragment } from "react";
 import styled from "styled-components";
 import RegisterForm from "../forms/RegisterForm";
 import WelcomeText from "../texts/WelcomeText";
+import About from "../sections/About";
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -11,17 +12,24 @@ export default function Register() {
     password2: "",
     invite: "",
   });
+
   return (
-    <Wrapper>
-      <ContentWrapper>
-        <TextWrapper>
-          <WelcomeText />
-          <LearnMoreTop>Learn More</LearnMoreTop>
-        </TextWrapper>
-        <RegisterForm />
-        <LearnMoreBottom>Learn More</LearnMoreBottom>
-      </ContentWrapper>
-    </Wrapper>
+    <Fragment>
+      <Wrapper>
+        <ContentWrapper>
+          <TextWrapper>
+            <WelcomeText />
+            <LearnMoreTop>Learn More</LearnMoreTop>
+          </TextWrapper>
+          <RegisterForm
+            formData={formData}
+            setFormData={(formData) => setFormData(formData)}
+          />
+          <LearnMoreBottom>Learn More</LearnMoreBottom>
+        </ContentWrapper>
+      </Wrapper>
+      <About />
+    </Fragment>
   );
 }
 const Wrapper = styled.div`

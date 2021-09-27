@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 export const Input = styled.div`
+  overflow: hidden;
   display: grid;
   position: relative;
   border-color: ${(props) =>
@@ -22,6 +23,7 @@ export const Input = styled.div`
   }
   transition: 0.2s linear;
   
+  
 
 `;
 
@@ -41,6 +43,7 @@ export const Icon = styled.img`
 `;
 
 export const TextField = styled.input`
+  overflow: hidden;
   margin-left: ${(props) => (props.name == props.stateName ? "30px" : "15px")};
   };
   font-size: 15px; 
@@ -56,6 +59,7 @@ export const TextField = styled.input`
     color: #b7a8a8;
   }
   transition: 0.2s linear;
+   
 `;
 
 export const SubmitButton = styled.div`

@@ -7,15 +7,13 @@ import useOnClickOutside from "../../helpers/hooks";
 
 export default function SideMenu(props) {
   const { open, setOpen } = props;
+
+  //For closing the side menu (small screens) on selection
+  const closeMenu = () => {
+    setOpen(false);
+  };
+
   //Menu for when app is at login screen
-
-  // const ref = useRef();
-
-  // useOnClickOutside(ref, () => {
-  //   setOpen(!open);
-  //   console.log(`Open: ${open}`);
-  // });
-
   const LoginMenu = [
     { title: "Login", link: "/" },
     { title: "Register", link: "/register" },
@@ -26,7 +24,7 @@ export default function SideMenu(props) {
       <MenuWrapper count={LoginMenu.length}>
         {LoginMenu.map((item, index) => (
           <Link to={item.link}>
-            <MenuItem>{item.title}</MenuItem>
+            <MenuItem onClick={closeMenu}>{item.title}</MenuItem>
           </Link>
         ))}
       </MenuWrapper>
